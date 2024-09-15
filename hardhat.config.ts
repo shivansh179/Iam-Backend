@@ -1,6 +1,7 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
+import "hardhat-deploy";
 
 const config: HardhatUserConfig = {
   solidity: {
@@ -16,6 +17,9 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
+  },
+  namedAccounts: {
+    deployer: 0,
   },
 };
 
