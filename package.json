@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx hardhat node"
   },
   "keywords": [],
   "author": "",
@@ -12,12 +12,13 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "ethers": "^5.7.2",
+    "ethers": "^6.1.0",
     "hardhat": "^2.22.10"
   },
   "dependencies": {
     "@nomiclabs/hardhat-waffle": "^2.0.6",
     "@openzeppelin/contracts": "^5.0.2",
-    "@usedapp/core": "^1.2.16"
+    "@usedapp/core": "^1.2.16",
+    "contracts": "file:"
   }
 }
