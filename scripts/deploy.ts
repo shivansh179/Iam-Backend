@@ -1,25 +1,17 @@
 import { ethers } from "hardhat";
-import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { DeployFunction } from "hardhat-deploy/types";
 
-const deploy: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  const { deployments, getNamedAccounts } = hre;
-  const { deploy } = deployments;
-  const { deployer } = await getNamedAccounts();
+async function main() {
+    const Voting = await ethers.getContractFactory("Voting");
+    const voting = await Voting.deploy();
+  
+    await voting.deployed();
+  
+    console.log("Voting contract deployed to:", voting.address);
+}
 
-  const Voting = await deploy("Voting", {
-    from: deployer,
-    args: [],
-    log: true,
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
   });
-
-  console.log("Voting contract deployed to:", Voting.address);
-
-  // Optionally save the address in a JSON file
-  const fs = require('fs');
-  const path = require('path');
-  fs.writeFileSync(path.resolve(__dirname, "../deployedAddress.json"), JSON.stringify({ contractAddress: Voting.address }, null, 2));
-};
-
-export default deploy;
-deploy.tags = ["Voting"];
