@@ -10,6 +10,10 @@ const config: HardhatUserConfig = {
         enabled: true,
         runs: 200,
       },
+
+      httpHeaders: {
+        'Access-Control-Allow-Origin': '*', // Allow all origins
+      },
     },
   },
   networks: {
